@@ -1,15 +1,20 @@
 import React from 'react';
-import styles from '../Tables/Tables.scss';
-import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import styles from './Tables.scss';
+import { Link } from 'react-router-dom';
 
-const Tables = () => (
-    <div className={styles.component}>
-        <h2>Tables view</h2>
-        <NavLink to={`${process.env.PUBLIC_URL}/tables/booking/123abc`} activeClassName='active'>Booking</NavLink>
-        <NavLink to={`${process.env.PUBLIC_URL}/tables/booking/new`} activeClassName='active'>New booking</NavLink>
-        <NavLink to={`${process.env.PUBLIC_URL}/tables/events/123abc`} activeClassName='active'>Events</NavLink>
-        <NavLink to={`${process.env.PUBLIC_URL}/tables/events/new`} activeClassName='active'>New event</NavLink>
-    </div>
-)
+const Tables = ({address='123abc'}) => (
+  <div className={styles.component}>
+    <h2>Tables View</h2>
+    <Link to="/tables/booking/new">New booking</Link>
+    <Link to={`tables/booking/${address}`}>{`Booking ${address}`}</Link>
+    <Link to="tables/event/new">New event</Link>
+    <Link to={`tables/event/${address}`}>{`Event ${address}`}</Link>
+  </div>
+);
+
+Tables.propTypes = {
+  address: PropTypes.string,
+};
 
 export default Tables;

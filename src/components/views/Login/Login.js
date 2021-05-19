@@ -1,10 +1,11 @@
 import React from 'react';
-import styles from '../Login/Login.scss';
+//import PropTypes from 'prop-types';
+import styles from './Login.scss';
 
 const Login = () => (
-    <div className={styles.component}>
-        <h2>Login view</h2>
-    </div>
-)
+  <div className={styles.component}>
+    <h2>Login View</h2>
+  </div>
+);
 
 export default Login;
